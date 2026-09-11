@@ -110,6 +110,25 @@ further exact covering numbers carrying verified witnesses.
 The honest part is the cross-reference: both machine lower bounds were checked against the published
 repository and marked *weaker than published*. **The new-lower-bounds list is empty.**
 
+**And the sweep corrected itself on why.** Its first pass concluded "no record was beaten" from the
+absence of certain tokens in the code — the wrong route, since those tokens are not the ones the
+checker writes. Locating the actual receipts confirms the conclusion and sharpens it:
+
+```
+upper-bound cross-reference   checked 40    NEW_UPPER_BOUNDS []   all 40 CONFIRMS_KNOWN
+lower-bound cross-reference   checked  2    NEW_LOWER_BOUNDS []   both weaker_than_published
+```
+
+Both lower-bound attempts landed **exactly** on the already-known values, narrowing no interval.
+
+The sharper point is the denominator: **40 cross-references against 7,419 open entries**, and the
+heuristic search module written explicitly to beat the repository at a scale exhaustive search cannot
+reach has **no recorded output at all**. So "zero improvements" describes a search that was never
+really conducted, not one that was conducted and failed.
+
+The gate itself is honest and correctly built, with a real improvement branch and the caveat
+"verify the repository is current" in its own honesty field. It simply never fired.
+
 **The star is not optimal for intersecting families. [checked by the sweep]** For `n=8, k=4, t=2` the
 star has `C(6,2) = 15` members while the first Ahlswede-Khachatrian family — sets meeting `[1,4]` in
 at least 3 points — has **17**. The exhaustive maximum 2-intersecting family of 4-sets on `[8]` is
