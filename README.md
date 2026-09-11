@@ -139,10 +139,19 @@ inf side   two-atom family (x+1)^p (x-1)^q, t = q/p
 `1 - 1/e = 0.632121`.
 
 The headline in the file was a departure at 12 standard deviations in the maximum preimage
-multiplicity. Observed mean over 24 primes: **6.12**. Against the **exact** expectation for the
-maximum of `p` independent Poisson(1) variables, `6.13`, that is `z = -0.06`. Against the asymptotic
-`log p / log log p = 3.89`, it is `z = +12.04`.
+multiplicity, with observed mean **6.12** over 24 primes. The sweep reports that against the *exact*
+expectation for the maximum of `p` independent Poisson(1) variables this is `z = -0.06`, while
+against the asymptotic `log p / log log p` it is `z = +12.04`.
 
+**I could not reproduce the two reference values.** Computing the exact expectation directly at
+`p = 100003` from the Poisson(1) distribution function gives **7.76**, and `log p / log log p` there
+is **4.71**, against the sweep's 6.13 and 3.89. Those numbers presumably come from a different `p`
+or from an average across the 24 primes, and the sweep does not say which — so **treat the two
+reference values as unconfirmed.**
+
+The structural point survives the discrepancy and is what matters: at `p = 100003` the asymptotic
+gives 4.71 while the exact expectation is near 7.8, so an observed maximum in the 6-to-8 range sits
+comfortably against the exact value and looks wildly anomalous against the asymptotic.
 **The anomaly was in the approximation, not the arithmetic.** Two more in the same file point the
 same way: a reflection identity has zero violations exhaustively at `p = 163, 311, 967`, and an
 apparent excess of solutions with mean 2.375 raw drops to **exactly 1.000** after collapsing under
